@@ -117,3 +117,41 @@ a:link{
     margin-left: auto;
     color: white;
   }
+
+  .carousel {
+      overflow: hidden;
+      max-width: 600px;
+      position: relative;
+  }
+
+  .carousel .carousel-item, 
+  .carousel .carousel-item--hidden {
+      display: none;
+  }
+
+.carousel .carousel-item img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    }
+
+.carousel .carousel-item--visible {
+    display: block;
+}
+
+.carousel .carousel-actions {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel .carousel-actions button {
+    border-radius: 50px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
