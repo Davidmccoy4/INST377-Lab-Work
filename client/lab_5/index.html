@@ -10,5 +10,28 @@
         <header class="header">
         <h1>David's Lab 5</h1>
         </header>
+        <form action="" method="get" class="form">
+            <div class="form-row">
+                <label for="first-name">First Name</label>
+                <input id="first-name" name="first-name" type="text"/>
+            </div>
+            <div class="form-row">
+                <label for="food-pref">Food Preference</label>
+                <input id="food-pref" name="food-pref" type="text"/>
+            </div>
+            <fieldset class="legacy-form-row">
+                <legend>Veggie or Vegan?</legend>
+                <input id="diet-1"
+                    name="diet"
+                    type="radio"
+                    value="yes"/>
+                <label for="diet-1" class="radio-label">Yes</label>
+                <input id="diet-2"
+                    name="diet"
+                    type="radio"
+                    value="no"/>
+                <label for="diet-2" class="radio-label">No</label>
+            </fieldset>
+        </form>
     </body>
 </html>
