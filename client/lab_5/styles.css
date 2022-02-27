@@ -11,7 +11,7 @@
   border-radius: 3px;
   
   width: 80%;
-  margin: 40px 0;
+  margin: 40px 40px;
   padding: 50px;
 }
 
@@ -28,6 +28,13 @@ body {
   background-color: darkslategray;
 }
 
+.section {
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .form {
   background-color: #F6F7F8;
   border: 1px solid #D6D9DC;
@@ -35,7 +42,7 @@ body {
 
   width: 80%;
   padding: 50px;
-  margin: 0 0 40px 0;
+  margin: 40px 40px;
 }
 
 .form-row {
@@ -81,6 +88,38 @@ body {
 .legacy-form-row .radio-label,
 .legacy-form-row input[type='radio'] {
   float: left;
+}
+
+.form-row button {
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #FFFFFF;
+  background-color: #5995DA;
+
+  border: none;
+  border-radius: 3px;
+
+  padding: 10px 40px;
+  cursor: pointer;
+}
+
+.form-row button:hover {
+  background-color: #76AEED;
+}
+
+.form-row button:active {
+  background-color: #407FC7;
+}
+
+.comment {
+  background-color: #F6F7F8;
+  border: 1px solid #D6D9DC;
+  border-radius: 3px;
+
+  width: 80%;
+  padding: 50px;
+  margin: 40px;
 }
 
 /* Page Layout */
