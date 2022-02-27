@@ -3,43 +3,49 @@
     <head>
         <meta charset='UTF-8'/>
         <title>David McCoy Lab 5: HTML Forms, CSS Frameworks, HTTP Methods</title>
-        <link rel='stylesheet' href='/bulma.css'/>
+        <link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
         <header class="header">
         <h1>David's Lab 5</h1>
         </header>
-        <div class="section">
-        <form action="" method="get" class="form">
-            <div class="form-row">
-                <label for="first-name">First Name</label>
-                <input id="first-name" name="first-name" type="text"/>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                <form action="" method="get" class="form">
+                    <div class="form-row">
+                        <label for="first-name">First Name</label>
+                        <input id="first-name" name="first-name" type="text"/>
+                    </div>
+                    <div class="form-row">
+                        <label for="food-pref">Food Preference</label>
+                        <input id="food-pref" name="food-pref" type="text"/>
+                    </div>
+                    <fieldset class="legacy-form-row">
+                        <legend>Veggie or Vegan?</legend>
+                        <input id="diet-1"
+                            name="diet"
+                            type="radio"
+                            value="yes"/>
+                        <label for="diet-1" class="radio-label">Yes</label>
+                        <input id="diet-2"
+                            name="diet"
+                            type="radio"
+                            value="no"/>
+                        <label for="diet-2" class="radio-label">No</label>
+                    </fieldset>
+                    <div class="form-row">
+                        <button>Submit</button>
+                    </div>
+                </form>
+                </div>
+                <div class="column">
+                <div class="comment">
+                    This is going to be something in two weeks.
+                </div>
+                </div>
             </div>
-            <div class="form-row">
-                <label for="food-pref">Food Preference</label>
-                <input id="food-pref" name="food-pref" type="text"/>
-            </div>
-            <fieldset class="legacy-form-row">
-                <legend>Veggie or Vegan?</legend>
-                <input id="diet-1"
-                    name="diet"
-                    type="radio"
-                    value="yes"/>
-                <label for="diet-1" class="radio-label">Yes</label>
-                <input id="diet-2"
-                    name="diet"
-                    type="radio"
-                    value="no"/>
-                <label for="diet-2" class="radio-label">No</label>
-            </fieldset>
-            <div class="form-row">
-                <button>Submit</button>
-            </div>
-        </form>
-        <div class="comment">
-            <p>This is going to be something in two weeks.</p>
-        </div>
         </div>
         <script src="script.js"></script>
     </body>
