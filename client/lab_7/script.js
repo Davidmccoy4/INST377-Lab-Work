@@ -20,12 +20,13 @@ function restoArrayMake(dataArray) {
 function createHtmlList(collection) {
   // console.log('fired HTML creator');
   // console.table(collection);
+  console.log(collection);
   const targetList = document.querySelector('.resto-list');
   targetList.innerHTML = '';
   collection.forEach((item) => {
     const {name} = item;
     const displayName = name.toLowerCase();
-    const injectThisItem = `<li>${item.name}</li>`;
+    const injectThisItem = `<li>${displayName}</li>`;
     targetList.innerHTML += injectThisItem;
   });
 }
@@ -48,15 +49,19 @@ async function mainEvent() { // the async keyword means we can make API requests
     submit.style.display = 'block';
 
     let currentArray = [];
-    resto.addEventListener('input', async (event)=> {
-      if (currentArray === undefined) { return; }
+    resto.addEventListener('input', async (event) => {
       console.log(event.target.value);
-      const matchResto = currentArray.filter((item) => {
-        console.log(item.name);
-        console.log(item);
-        return item.name.includes(event.target.value);
+      if (currentArray.length < 1) { 
+        return; 
+      }
+  
+      const selectResto = currentArray.filter((item) => {
+        const lowerName = item.name.toLowerCase();
+        const lowerValue = event.target.value.toLowerCase();
+        return lowerName.includes(lowerValue);
       });
-      console.log(matchResto);
+      console.log(selectResto);
+      createHtmlList(selectResto);
     });
 
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
@@ -64,8 +69,9 @@ async function mainEvent() { // the async keyword means we can make API requests
       // console.log('form submission'); // this is substituting for a "breakpoint"
       // arrayFromJson.data - we're accessing a key called 'data' on the returned object
       // it contains all 1,000 records we need
-      const restoArray = restoArrayMake(arrayFromJson.data);
-      createHtmlList(restoArray);
+      currentArray = restoArrayMake(arrayFromJson.data);
+      console.log(currentArray);
+      createHtmlList(currentArray);
     });
   }
 }
