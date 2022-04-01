@@ -37,7 +37,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   const submit = document.querySelector('.submit_button');
 
   const resto = document.querySelector('#resto_name');
-  const zipcode = document.querySelector('#zipcode');
+  const city = document.querySelector('#city');
   submit.style.display = 'none';
 
   const results = await fetch('/api/foodServicesPG'); // This accesses some data from our API
@@ -64,10 +64,14 @@ async function mainEvent() { // the async keyword means we can make API requests
       createHtmlList(selectResto);
     });
 
-    zipcode.addEventListener('input', async (event) => {
+    city.addEventListener('input', async (event) => {
       console.log(event.target.value);
 
-      const selectResto = arrayFromJson.data.filter(item.zip);
+      const selectResto = arrayFromJson.data.filter((item) => {
+        const lowerName = item.city.toLowerCase();
+        const lowerValue = event.target.value.toLowerCase();
+        return lowerName.includes(lowerValue);
+      });
 
       console.log(selectResto);
       createHtmlList(selectResto);
