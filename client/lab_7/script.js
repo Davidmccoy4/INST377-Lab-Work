@@ -51,11 +51,11 @@ async function mainEvent() { // the async keyword means we can make API requests
     let currentArray = [];
     resto.addEventListener('input', async (event) => {
       console.log(event.target.value);
-      // if (currentArray.length < 1) {
-      //  return;
-      // }
+      if (currentArray.length < 1) {
+        return;
+      }
 
-      const selectResto = arrayFromJson.data.filter((item) => {
+      const selectResto = currentArray.filter((item) => {
         const lowerName = item.name.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
@@ -67,7 +67,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     city.addEventListener('input', async (event) => {
       console.log(event.target.value);
 
-      const selectResto = arrayFromJson.data.filter((item) => {
+      const selectResto = currentArray.filter((item) => {
         const lowerName = item.city.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
