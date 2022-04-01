@@ -67,7 +67,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     zipcode.addEventListener('input', async (event) => {
       console.log(event.target.value);
 
-      const selectResto = currentArray.filter(zip);
+      const selectResto = currentArray.filter(item.zip);
 
       console.log(selectResto);
       createHtmlList(selectResto);
