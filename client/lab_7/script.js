@@ -3,7 +3,7 @@ function getRandomIntInclusive(min,max) {
   const newMax = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-  
+
 function restoArrayMake(dataArray) {
   // console.log('fired dataHandler');
   // console.table(dataArray); // this is called "dot notation"
@@ -16,7 +16,7 @@ function restoArrayMake(dataArray) {
   // console.log(listItems);
   return listItems;
 }
-  
+
 function createHtmlList(collection) {
   // console.log('fired HTML creator');
   // console.table(collection);
@@ -30,7 +30,7 @@ function createHtmlList(collection) {
     targetList.innerHTML += injectThisItem;
   });
 }
-  
+
 async function mainEvent() { // the async keyword means we can make API requests
   console.log('script loaded');
   const form = document.querySelector('.main_form');
@@ -39,11 +39,11 @@ async function mainEvent() { // the async keyword means we can make API requests
   const resto = document.querySelector('#resto_name');
   const zipcode = document.querySelector('#zipcode');
   submit.style.display = 'none';
-    
+
   const results = await fetch('/api/foodServicesPG'); // This accesses some data from our API
   const arrayFromJson = await results.json(); // This changes it into data we can use - an object
   // console.log(arrayFromJson);
-  
+
   // This if sttement is to prevent a race condition on data load
   if (arrayFromJson.data.length > 0) {
     submit.style.display = 'block';
@@ -54,7 +54,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       if (currentArray.length < 1) {
         return;
       }
-  
+
       const selectResto = currentArray.filter((item) => {
         const lowerName = item.name.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
@@ -67,7 +67,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     zipcode.addEventListener('input', async (event) => {
       console.log(event.target.value);
 
-      const selectResto = currentArray.filter(item.zip);
+      const selectResto = currentArray.filter(zip);
 
       console.log(selectResto);
       createHtmlList(selectResto);
