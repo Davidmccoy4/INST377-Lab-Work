@@ -26,7 +26,7 @@ html {
     background-color: tan;
     border-radius: 3px;
     
-    width: 80%;
+    width: 100%;
     margin: 40px;
     padding: 50px;
   }
@@ -117,16 +117,21 @@ html {
     border: 1px solid #D6D9DC;
     border-radius: 3px;
   
-    width: 80%;
+    width: 640px;
     padding: 50px;
     margin: 40px;
   }
   
-  
+  #map { height: 180px; }
+
   /* Page Layout */
   .columns {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .page_item_wide {
+      width: 640px;
   }
   
   .wrapper {
