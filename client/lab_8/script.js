@@ -45,13 +45,13 @@ function initMap(targetId) {
   return map;
 }
 
-/* function addMapMarkers(map, collection) {
+function addMapMarkers(map, collection) {
   collection.forEach((item) => {
     const point = item.geocoded_column_1?.coordinates;
     console.log(item.geocoded_column_1?.coordinates);
     L.marker([point[1], point[0]]).addTo(map);
   });
-} */
+}
 
 async function mainEvent() { // the async keyword means we can make API requests
   console.log('script loaded');
@@ -69,7 +69,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     const arrayFromJson = await results.json(); // This changes it into data we can use - an object
     console.log(arrayFromJson);
     localStorage.setItem(restVar, JSON.stringify(arrayFromJson.data));
-  };
+  }
 
   /* const results = await fetch('/api/foodServicesPG'); // This accesses some data from our API
   const arrayFromJson = await results.json(); // This changes it into data we can use - an object
@@ -77,14 +77,14 @@ async function mainEvent() { // the async keyword means we can make API requests
   localStorage.setItem(restVar, JSON.stringify(arrayFromJson.data)); */
 
   const storedData = localStorage.getItem(restVar);
-  // const storedDataArray = JSON.parse(storedData);
-  console.log(storedData);
+  const storedDataArray = JSON.parse(storedData);
+  console.log(storedDataArray);
   /* const storedDataArray = JSON.parse(storedDataString);
   console.log(storedDataArray);
   // let arrayFromJson = {data: []}; // ToDo */
 
   // This if sttement is to prevent a race condition on data load
-  if (storedData.length > 0) {
+  if (storedDataArray.length > 0) {
     submit.style.display = 'block';
 
     let currentArray = [];
@@ -94,7 +94,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       //  return;
       // }
 
-      const selectResto = storedData.filter((item) => {
+      const selectResto = storedDataArray.filter((item) => {
         const lowerName = item.name.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
@@ -106,7 +106,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     city.addEventListener('input', async (event) => {
       console.log(event.target.value);
 
-      const selectResto = storedData.filter((item) => {
+      const selectResto = storedDataArray.filter((item) => {
         const lowerName = item.city.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
@@ -121,10 +121,10 @@ async function mainEvent() { // the async keyword means we can make API requests
       // console.log('form submission'); // this is substituting for a "breakpoint"
       // arrayFromJson.data - we're accessing a key called 'data' on the returned object
       // it contains all 1,000 records we need
-      currentArray = restoArrayMake(storedData);
+      currentArray = restoArrayMake(storedDataArray);
       console.log(currentArray);
       createHtmlList(currentArray);
-      // addMapMarkers(map, currentArray);
+      addMapMarkers(map, currentArray);
     });
   }
 }
