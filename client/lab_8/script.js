@@ -78,13 +78,13 @@ async function mainEvent() { // the async keyword means we can make API requests
   localStorage.setItem(restVar, JSON.stringify(arrayFromJson.data));
   const storedData = localStorage.getItem(restVar);
   // const storedDataArray = JSON.parse(storedData);
-  console.log(storedDataArray);
+  console.log(storedData);
   /* const storedDataArray = JSON.parse(storedDataString);
   console.log(storedDataArray);
   // let arrayFromJson = {data: []}; // ToDo */
 
   // This if sttement is to prevent a race condition on data load
-  if (storedDataArray.length > 0) {
+  if (arrayFromJson.data.length > 0) {
     submit.style.display = 'block';
 
     let currentArray = [];
@@ -94,7 +94,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       //  return;
       // }
 
-      const selectResto = arrayFromJson.filter((item) => {
+      const selectResto = arrayFromJson.data.filter((item) => {
         const lowerName = item.name.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
@@ -106,7 +106,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     city.addEventListener('input', async (event) => {
       console.log(event.target.value);
 
-      const selectResto = arrayFromJson.filter((item) => {
+      const selectResto = arrayFromJson.data.filter((item) => {
         const lowerName = item.city.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
