@@ -61,7 +61,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   const resto = document.querySelector('#resto_name');
   const city = document.querySelector('#city');
   const map = initMap('map');
-  const restVar = 'resturants';
+  const restVar = 'restaurants';
   submit.style.display = 'none';
 
   /* if (!localStorage.getItem(restVar)) {
@@ -74,15 +74,17 @@ async function mainEvent() { // the async keyword means we can make API requests
   const results = await fetch('/api/foodServicesPG'); // This accesses some data from our API
   const arrayFromJson = await results.json(); // This changes it into data we can use - an object
   console.log(arrayFromJson);
+
   localStorage.setItem(restVar, JSON.stringify(arrayFromJson.data));
   const storedData = localStorage.getItem(restVar);
-  console.log(storedData);
+  // const storedDataArray = JSON.parse(storedData);
+  console.log(storedDataArray);
   /* const storedDataArray = JSON.parse(storedDataString);
   console.log(storedDataArray);
   // let arrayFromJson = {data: []}; // ToDo */
 
   // This if sttement is to prevent a race condition on data load
-  if (arrayFromJson.length > 0) {
+  if (storedDataArray.length > 0) {
     submit.style.display = 'block';
 
     let currentArray = [];
