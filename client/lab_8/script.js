@@ -94,7 +94,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       //  return;
       // }
 
-      const selectResto = arrayFromJson.data.filter((item) => {
+      const selectResto = storedData.filter((item) => {
         const lowerName = item.name.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
@@ -106,7 +106,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     city.addEventListener('input', async (event) => {
       console.log(event.target.value);
 
-      const selectResto = arrayFromJson.data.filter((item) => {
+      const selectResto = storedData.filter((item) => {
         const lowerName = item.city.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
