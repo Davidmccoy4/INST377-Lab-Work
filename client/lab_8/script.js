@@ -46,6 +46,12 @@ function initMap(targetId) {
 }
 
 function addMapMarkers(map, collection) {
+  map.eachLayer((layer) => {
+    if (layer instanceof L.Marker) {
+      layer.remove();
+    }
+  })
+
   collection.forEach((item) => {
     const point = item.geocoded_column_1?.coordinates;
     console.log(item.geocoded_column_1?.coordinates);
