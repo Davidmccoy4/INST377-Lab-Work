@@ -84,7 +84,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   // let arrayFromJson = {data: []}; // ToDo */
 
   // This if sttement is to prevent a race condition on data load
-  if (storedData.length > 0) {
+  if (storedData > 0) {
     submit.style.display = 'block';
 
     let currentArray = [];
@@ -121,7 +121,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       // console.log('form submission'); // this is substituting for a "breakpoint"
       // arrayFromJson.data - we're accessing a key called 'data' on the returned object
       // it contains all 1,000 records we need
-      currentArray = restoArrayMake(storedData.data);
+      currentArray = restoArrayMake(storedData);
       console.log(currentArray);
       createHtmlList(currentArray);
       // addMapMarkers(map, currentArray);
