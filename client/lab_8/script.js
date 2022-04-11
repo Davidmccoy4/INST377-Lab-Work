@@ -84,7 +84,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   // let arrayFromJson = {data: []}; // ToDo */
 
   // This if sttement is to prevent a race condition on data load
-  if (storedData > 0) {
+  if (storedData.length > 0) {
     submit.style.display = 'block';
 
     let currentArray = [];
