@@ -61,17 +61,17 @@ async function mainEvent() { // the async keyword means we can make API requests
   const resto = document.querySelector('#resto_name');
   const city = document.querySelector('#city');
   const map = initMap('map');
-  const retrievalVar = 'resturants';
+  const restVar = 'resturants';
   submit.style.display = 'none';
 
-  if (localStorage.getItem(retrievalVar) === null) {
+  if (!localStorage.getItem(restVar)) {
     const results = await fetch('/api/foodServicesPG'); // This accesses some data from our API
     const arrayFromJson = await results.json(); // This changes it into data we can use - an object
     console.log(arrayFromJson);
-    localStorage.setItem(retrievalVar, JSON.stringify(arrayFromJson.data));
+    localStorage.setItem(restVar, JSON.stringify(arrayFromJson.data));
   }
 
-  const storedDataString = localStorage.getItem(retrievalVar);
+  const storedDataString = localStorage.getItem(restVar);
   const storedDataArray = JSON.parse(storedDataString);
   console.log(storedDataArray);
   // let arrayFromJson = {data: []}; // ToDo
