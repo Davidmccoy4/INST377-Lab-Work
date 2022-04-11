@@ -33,7 +33,7 @@ function createHtmlList(collection) {
 
 function initMap(targetId) {
   const latLong = [38.7849, -76.8721];
-  const map = L.map('map').setView(latLong, 9);
+  const map = L.map(targetId).setView(latLong, 9);
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -46,7 +46,7 @@ function initMap(targetId) {
 }
 
 function addMapMarkers(map, collection) {
-  collection.forEach(item => {
+  collection.forEach((item) => {
     const point = item.geocoded_column_1?.coordinates;
     console.log(item.geocoded_column_1?.coordinates);
     L.marker([point[1], point[0]]).addTo(map);
