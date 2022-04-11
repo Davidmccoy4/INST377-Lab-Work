@@ -122,7 +122,7 @@ html {
     margin: 40px;
   }
   
-  #map { height: 180px; }
+  #map { height: 360px; }
 
   /* Page Layout */
   .columns {
